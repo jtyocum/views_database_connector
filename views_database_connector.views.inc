@@ -195,9 +195,6 @@ function views_database_connector_get_database_schema_mysql($key) {
     // names due to using information_schema.  We have the ability to
     // check on columns without the PDO table substitution problem.
     foreach ($row as $v) {
-      //
-      // ****** IMPORTANT Find replacement for drupal_get_complete_schema
-      //if (!in_array($v, array_keys(drupal_get_complete_schema()))) {
         // Switch to database in question.
         db_set_active($key);
         // Fetch column names and their data type from said table.
@@ -224,7 +221,6 @@ function views_database_connector_get_database_schema_mysql($key) {
         }
         // Add table and its columns to the table list.
         $tablelist[] = array($v, $collist);
-      //}
     }
   }
 
